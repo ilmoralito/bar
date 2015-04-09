@@ -1,7 +1,6 @@
 <g:applyLayout name="twoColumns">
 	<head>
 		<title>Clave</title>
-		<asset:stylesheet src="application.css"/>
 	</head>
 
 	<content tag="main">

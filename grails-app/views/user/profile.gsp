@@ -1,7 +1,6 @@
 <g:applyLayout name="twoColumns">
 	<head>
 		<title>Perfil</title>
-		<asset:stylesheet src="application.css"/>
 	</head>
 
 	<content tag="main">

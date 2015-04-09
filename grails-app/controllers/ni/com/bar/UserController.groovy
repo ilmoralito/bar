@@ -2,12 +2,13 @@ package ni.com.bar
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class UserController {
 	static defaultAction = "profile"
 	static allowedMethods = [
 		profile:["GET", "POST"],
-		password:["GET", "POST"]
+		password:["GET", "POST"],
+		list:"GET"
 	]
 
 	def springSecurityService
@@ -22,6 +23,11 @@ class UserController {
   	}
 
   	[user:user]
+  }
+
+  @Secured(['ROLE_ADMIN'])
+  def list() {
+
   }
 
   def password(PasswordCommand cmd) {

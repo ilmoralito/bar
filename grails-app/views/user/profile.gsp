@@ -1,0 +1,27 @@
+<g:applyLayout name="twoColumns">
+	<head>
+		<title>Perfil</title>
+		<asset:stylesheet src="application.css"/>
+	</head>
+
+	<content tag="main">
+		<g:render template="navbar"/>
+
+		<g:form action="profile" autocomplete="off">
+			<div class="form-group">
+				<g:textField name="username" value="${user?.username}" class="form-control" placeholder="Nombre de usuario" autofocus="true"/>
+			</div>
+
+			<div class="form-group">
+				<g:textField name="fullName" value="${user?.fullName}" class="form-control" placeholder="Nombre completo"/>
+			</div>
+
+			<g:submitButton name="send" value="Confirmar" class="btn btn-primary"/>
+		</g:form>
+
+		<g:hasErrors bean="${user}">
+			<br>
+			<g:renderErrors bean="${user}"/>
+		</g:hasErrors>
+	</content>
+</g:applyLayout>

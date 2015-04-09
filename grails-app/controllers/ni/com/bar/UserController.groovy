@@ -27,7 +27,10 @@ class UserController {
 
   @Secured(['ROLE_ADMIN'])
   def list() {
+  	def users = User.list()
+  	def roles = Role.list()
 
+  	[users:users, roles:roles]
   }
 
   def password(PasswordCommand cmd) {

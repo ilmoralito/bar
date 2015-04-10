@@ -44,10 +44,10 @@
 			</div>
 
 			<h5>por rol</h5>
-			<g:each in="${roles}" var="rol">
+			<g:each in="${roles}" var="role">
 				<div class="checkbox">
 					<label>
-						<g:checkBox name="roles" value="${rol.authority}" checked="false"/> ${rol.authority}
+						<g:checkBox name="roles" value="${role.authority}" checked="${params.list('roles').contains(role.authority)}"/> ${role.authority}
 					</label>
 				</div>
 			</g:each>

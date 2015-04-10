@@ -8,7 +8,7 @@ class UserController {
 	static allowedMethods = [
 		profile:["GET", "POST"],
 		password:["GET", "POST"],
-		list:"GET",
+		list:["GET", "POST"],
 		create:["GET", "POST"],
 		show:"GET"
 	]
@@ -31,6 +31,14 @@ class UserController {
   def list() {
   	def users = User.list()
   	def roles = Role.list()
+
+  	if (request.method == "POST") {
+  		def roleInstances = params.list("roles")
+
+  		if (roleInstances) {
+  			users = users.findAll { it.authorities.authority.any { roleInstances.contains it } }
+  		}
+  	}
 
   	[users:users, roles:roles]
   }

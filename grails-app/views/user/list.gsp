@@ -4,8 +4,6 @@
 	</head>
 
 	<content tag="main">
-		<h4>Usuarios</h4>
-
 		<g:if test="${users}">
 			<table class="table table-hover">
 				<thead>
@@ -16,7 +14,9 @@
 				<tbody>
 					<g:each in="${users}" var="user">
 						<tr>
-							<td>${user.fullName}</td>
+							<td>
+								<g:link action="show" params="[id:user.id]">${user.fullName}</g:link>
+							</td>
 						</tr>
 					</g:each>
 				</tbody>

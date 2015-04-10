@@ -9,7 +9,8 @@ class UserController {
 		profile:["GET", "POST"],
 		password:["GET", "POST"],
 		list:"GET",
-		create:["GET", "POST"]
+		create:["GET", "POST"],
+		show:"GET"
 	]
 
 	def springSecurityService
@@ -72,6 +73,16 @@ class UserController {
   	}
 
   	[roles:roles]
+  }
+
+  def show(Long id) {
+  	def user = User.get id
+
+  	if (!user) {
+  		response sendError 404
+  	}
+
+  	[user:user]
   }
 }
 

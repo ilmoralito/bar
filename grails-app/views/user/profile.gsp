@@ -7,12 +7,16 @@
 		<g:render template="navbar"/>
 
 		<g:form action="profile" autocomplete="off">
-			<div class="form-group">
-				<g:textField name="username" value="${user?.username}" class="form-control" placeholder="Nombre de usuario" autofocus="true"/>
+			<div class="form-group row">
+				<div class="col-xs-4">
+					<g:textField name="username" value="${user?.username}" class="form-control" placeholder="Nombre de usuario" autofocus="true"/>
+				</div>
 			</div>
 
-			<div class="form-group">
-				<g:textField name="fullName" value="${user?.fullName}" class="form-control" placeholder="Nombre completo"/>
+			<div class="form-group row">
+				<div class="col-xs-4">
+					<g:textField name="fullName" value="${user?.fullName}" class="form-control" placeholder="Nombre completo"/>
+				</div>
 			</div>
 
 			<g:submitButton name="send" value="Confirmar" class="btn btn-primary"/>

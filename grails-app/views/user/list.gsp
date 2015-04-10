@@ -33,13 +33,13 @@
 
 			<div class="checkbox">
 				<label>
-					<g:checkBox name="enabled" value="true" checked="false"/> Activos
+					<g:checkBox name="enabled" value="true" checked="${params.list('enabled')*.toBoolean().contains(true)}"/> Activos
 				</label>
 			</div>
 
 			<div class="checkbox">
 				<label>
-					<g:checkBox name="enabled" value="true" checked="false"/> No activos
+					<g:checkBox name="enabled" value="false" checked="${params.list('enabled')*.toBoolean().contains(false)}"/> No activos
 				</label>
 			</div>
 

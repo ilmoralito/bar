@@ -34,6 +34,14 @@ class UserController {
 
   	if (request.method == "POST") {
   		def roleInstances = params.list("roles")
+  		def enabled = params.list("enabled")*.toBoolean()
+
+  		if (enabled) {
+  			def criteria = User.createCriteria()
+  			users = criteria {
+  				"in" "enabled", enabled
+  			}
+  		}
 
   		if (roleInstances) {
   			users = users.findAll { it.authorities.authority.any { roleInstances.contains it } }

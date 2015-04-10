@@ -8,7 +8,8 @@ class UserController {
 	static allowedMethods = [
 		profile:["GET", "POST"],
 		password:["GET", "POST"],
-		list:"GET"
+		list:"GET",
+		create:["GET", "POST"]
 	]
 
 	def springSecurityService
@@ -48,6 +49,30 @@ class UserController {
   		flash.message = "Clave cambiada"
   	}
   }
+
+  def create(CreateCommand cmd) {
+  	def roles = Role.list()
+
+  	if (request.method == "POST") {
+  		if (cmd.hasErrors()) {
+  			return [user:cmd, roles:roles]
+  		}
+
+  		def user = new User(username:cmd.username, fullName:cmd.fullName, password:cmd.password)
+
+  		if (!user.save()) {
+  			flash.message = "Nombre de usuario repetido"
+  		} else {
+	  		cmd.roles.each { role ->
+	  			UserRole.create user, Role.findByAuthority(role), true
+	  		}
+
+	  		flash.message = "Usuario creado"
+  		}
+  	}
+
+  	[roles:roles]
+  }
 }
 
 class PasswordCommand {
@@ -70,6 +95,22 @@ class PasswordCommand {
 		newPassword validator:{ newPassword, obj ->
 			if (newPassword != obj.repeatPassword) {
 				return "passwordCommand.newPassword.notMatch"
+			}
+		}
+	}
+}
+
+class CreateCommand {
+	String username
+	String fullName
+	String password
+	List<String> roles
+
+	static constraints = {
+		importFrom User
+		roles validator: { roles ->
+			if (!roles) {
+				return "createCommand.roles.empty"
 			}
 		}
 	}

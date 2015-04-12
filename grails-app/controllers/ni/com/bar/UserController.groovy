@@ -95,7 +95,7 @@ class UserController {
   	def user = User.get id
 
   	if (!user) {
-  		response sendError 404
+  		response.sendError 404
   	}
 
   	[user:user]

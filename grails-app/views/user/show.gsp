@@ -5,7 +5,7 @@
 
 	<content tag="main">
 		<g:link action="list">Regresar</g:link>
-		<br><br>
+		<br>
 
 		<h4>Nombre de usuario</h4>
 		<p>${user?.username}</p>

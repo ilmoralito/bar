@@ -19,6 +19,12 @@ class BootStrap {
         assert Role.count() == 2
   			assert User.count() == 3
   			assert UserRole.count() == 3
+
+        //providers
+        def provider1 = new Provider(name:"Cerveceria de Nicaragua", address:"Entrada a leon carretera Chinandega KM 45").save(failOnError:true)
+        def provider2 = new Provider(name:"Ron", address:"Chinandega KM 8787").save(failOnError:true)
+
+        assert Provider.count() == 2
   		break
   	}
   }

@@ -6,7 +6,7 @@
 </div>
 
 <div class="form-group row">
-	<div class="col-xs-4">
+	<div class="col-xs-6">
 		<label for="address">Direccion</label>
 		<g:textField name="address" value="${provider?.address}" class="form-control"/>
 	</div>

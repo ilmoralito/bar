@@ -4,6 +4,8 @@
 	</head>
 
 	<content tag="main">
+		<g:render template="navbar"/>
+
 		<g:form action="update" autocomplete="off">
 			<g:hiddenField name="id" value="${provider?.id}"/>
 			<g:render template="form"/>

@@ -12,19 +12,24 @@ class ProductController {
   def index() {
   	def products
   	def productType = params?.productType ?: "beer"
-  	def brands = {
-  		if (productType == "beer") {
-  			return Beer.list().brand.unique()
-  		}
-  	}
+  	def brands
 
   	switch(productType) {
   		case "beer":
-  			products = Beer.list().groupBy { it.brand }
+        def beers = Beer.list()
+
+        brands = beers.brand.unique()
+        products = beers.groupBy { it.brand }
   		break
+      case "cigar":
+        def cigars = Cigar.list()
+
+        brands = cigars.brand.unique()
+        products = cigars.groupBy { it.brand }
+      break
   	}
 
-  	[products:products, productType:productType, brands:brands.call()]
+  	[products:products, productType:productType, brands:brands]
   }
 
   def save(String productType) {

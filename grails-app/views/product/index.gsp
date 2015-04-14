@@ -14,14 +14,18 @@
 					<thead>
 						<tr>
 							<th width="1">Medida</th>
-							<th>Presentacion</th>
+							<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
+								<th>Presentacion</th>
+							</g:if>
 						</tr>
 					</thead>
 					<tbody>
 						<g:each in="${brand.value}" var="${p}">
 							<tr>
 								<td>${p.measure}</td>
-								<td><bar:presentation presentation="${p.presentation}"/></td>
+								<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
+									<td><bar:presentation presentation="${p.presentation}"/></td>
+								</g:if>
 							</tr>
 						</g:each>
 					</tbody>

@@ -27,9 +27,6 @@ class BootStrap {
         assert Provider.count() == 2
 
         //PRODUCTS
-        //products
-        def jugoValle = new Product(brand:"Valle").save(failOnError:true)
-
         //beers
         def tona12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"bottle").save(failOnError:true)
         def tonaLitro = new Beer(brand:"Tona", measure:"1L", presentation:"bottle").save(failOnError:true)
@@ -37,6 +34,13 @@ class BootStrap {
         def tonaLata700Ml = new Beer(brand:"Tona", measure:"700ml", presentation:"can").save(failOnError:true)
 
         assert Beer.count() == 4
+
+        //cigars
+        def belmont10 = new Cigar(brand:"Belmont", measure:"10").save(failOnError:true)
+        def belmont20 = new Cigar(brand:"Belmont", measure:"20").save(failOnError:true)
+        def winsor = new Cigar(brand:"Winsor", measure:"10").save(failOnError:true)
+
+        assert Cigar.count() == 3
   		break
   	}
   }

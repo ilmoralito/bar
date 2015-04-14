@@ -25,6 +25,18 @@ class BootStrap {
         def provider2 = new Provider(name:"Ron", address:"Chinandega KM 8787").save(failOnError:true)
 
         assert Provider.count() == 2
+
+        //PRODUCTS
+        //products
+        def jugoValle = new Product(brand:"Valle").save(failOnError:true)
+
+        //beers
+        def tona12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"bottle").save(failOnError:true)
+        def tonaLitro = new Beer(brand:"Tona", measure:"1L", presentation:"bottle").save(failOnError:true)
+        def tonaLata12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"can").save(failOnError:true)
+        def tonaLata700Ml = new Beer(brand:"Tona", measure:"700ml", presentation:"can").save(failOnError:true)
+
+        assert Beer.count() == 4
   		break
   	}
   }

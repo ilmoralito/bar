@@ -12,4 +12,12 @@ class AppTagLib {
   		out << "Inactivo"
   	}
   }
+
+  def presentation = { attrs ->
+    if (attrs.presentation == "bottle") {
+      out << "Botella"
+    } else {
+      out << "Lata"
+    }
+  }
 }

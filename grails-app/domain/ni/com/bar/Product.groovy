@@ -1,7 +1,12 @@
 package ni.com.bar
 
+import org.grails.databinding.BindUsing
+
 class Product {
 
+	@BindUsing({obj, source ->
+    source["brand"]?.capitalize()
+  })
 	String brand
 
 	Date dateCreated

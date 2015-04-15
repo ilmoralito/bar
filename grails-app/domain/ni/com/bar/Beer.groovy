@@ -1,7 +1,5 @@
 package ni.com.bar
 
-import grails.util.Holders
-
 class Beer extends Product {
 
 	String measure

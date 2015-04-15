@@ -116,6 +116,10 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
+ni.com.bar.measuers = [
+  beers:["1L", "12Oz", "700ml"],
+  cigars:["10", "20"]
+]
 
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.logout.postOnly = false

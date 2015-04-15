@@ -14,10 +14,14 @@ class AppTagLib {
   }
 
   def presentation = { attrs ->
-    if (attrs.presentation == "bottle") {
+    def p = attrs.presentation
+
+    if (p == "bottle") {
       out << "Botella"
-    } else {
+    } else if (p == "can") {
       out << "Lata"
+    } else {
+      out << "Caja"
     }
   }
 }

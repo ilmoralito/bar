@@ -4,7 +4,7 @@ class Cigar extends Product {
 	String measure
 
   static constraints = {
-  	measure blank:false, unique:["brand"], inList:["10", "20"], maxSize:50
+  	measure blank:false, inList:["10", "20"], maxSize:50
   }
 
 }

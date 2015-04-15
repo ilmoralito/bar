@@ -8,14 +8,16 @@
 	</datalist>
 </div>
 
-<div class="form-group">
-	<label for="measure" class="sr-only"></label>
-	<g:select name="measure" from="${measures}" noSelection="[null:'Medida']" class="form-control"/>
-</div>
+<g:if test="${productType in ['beer', 'cigar']}">
+	<div class="form-group">
+		<label for="measure" class="sr-only"></label>
+		<g:select name="measure" from="${measures}" noSelection="[null:'Medida']" class="form-control"/>
+	</div>
+</g:if>
 
-<g:if test="${productType in ['beer']}">
+<g:if test="${productType in ['beer', 'juice']}">
 	<div class="form-group">
 		<label for="presentation" class="sr-only"></label>
-		<g:select name="presentation" from="${['Botella', 'Lata']}" keys="['bottle', 'can']" noSelection="[null:'Presentacion']" class="form-control"/>
+		<g:select name="presentation" from="${presentations}" keys="['bottle', 'can', 'box']" noSelection="[null:'Presentacion']" class="form-control"/>
 	</div>
 </g:if>

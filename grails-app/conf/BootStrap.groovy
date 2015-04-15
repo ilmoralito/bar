@@ -41,6 +41,13 @@ class BootStrap {
         def winsor = new Cigar(brand:"Winsor", measure:"10").save(failOnError:true)
 
         assert Cigar.count() == 3
+
+        //juices
+        def valle1 = new Juice(brand:"Valle", presentation:"bottle").save(failOnError:true)
+        def valle2 = new Juice(brand:"Valle", presentation:"can").save(failOnError:true)
+        def valle3 = new Juice(brand:"Valle", presentation:"box").save(failOnError:true)
+
+        assert Juice.count() == 3
   		break
   	}
   }

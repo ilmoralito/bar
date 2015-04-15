@@ -16,15 +16,26 @@ class ProductController {
   	def productType = params?.productType ?: "beer"
   	def brands
     def measures = []
+    def presentations = []
 
   	switch(productType) {
   		case "beer":
         def beers = Beer.list()
 
         brands = beers.brand.unique()
-        measures = grailsApplication.config.ni.com.bar.measuers.beers
+        measures = grailsApplication.config.ni.com.bar.measures.beers
+        presentations = grailsApplication.config.ni.com.bar.presentations.beers
         products = beers.groupBy { it.brand }
   		break
+
+      case "juice":
+        def juices = Juice.list()
+
+        brands = juices.brand.unique()
+        presentations = grailsApplication.config.ni.com.bar.presentations.juices
+        products = juices.groupBy { it.brand }
+      break
+
       case "cigar":
         def cigars = Cigar.list()
 
@@ -34,7 +45,7 @@ class ProductController {
       break
   	}
 
-  	[products:products, productType:productType, brands:brands, measures:measures]
+  	[products:products, productType:productType, brands:brands, measures:measures, presentations:presentations]
   }
 
   def save(String productType) {
@@ -44,6 +55,11 @@ class ProductController {
       case "beer":
         product = new Beer(params)
       break
+
+      case "juice":
+        product = new Juice(params)
+      break
+
       case "cigar":
         product = new Cigar(params)
       break

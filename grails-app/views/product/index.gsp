@@ -13,7 +13,9 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th width="1">Medida</th>
+							<g:if test="${productType in ['beer', 'cigar']}">
+								<th width="1">Medida</th>
+							</g:if>
 							<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
 								<th>Presentacion</th>
 							</g:if>
@@ -22,7 +24,9 @@
 					<tbody>
 						<g:each in="${brand.value}" var="${p}">
 							<tr>
-								<td>${p.measure}</td>
+								<g:if test="${productType in ['beer', 'cigar']}">
+									<td>${p.measure}</td>
+								</g:if>
 								<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
 									<td><bar:presentation presentation="${p.presentation}"/></td>
 								</g:if>

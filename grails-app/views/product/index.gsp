@@ -26,16 +26,17 @@
 			</g:if>
 			<g:else>
 				<!--OTHER PRODUCTs-->
+
 				<g:each in="${products}" var="brand">
 					<h4>${brand.key}</h4>
 
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<g:if test="${productType in ['beer', 'cigar', 'water', 'soda']}">
+								<g:if test="${productType in productsWithMeasure}">
 									<th width="1">Medida</th>
 								</g:if>
-								<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
+								<g:if test="${productType in productsWithPresentations}">
 									<th>Presentacion</th>
 								</g:if>
 							</tr>
@@ -43,10 +44,10 @@
 						<tbody>
 							<g:each in="${brand.value}" var="${p}">
 								<tr>
-									<g:if test="${productType in ['beer', 'cigar', 'water', 'soda']}">
+									<g:if test="${productType in productsWithMeasure}">
 										<td>${p.measure}</td>
 									</g:if>
-									<g:if test="${productType in ['beer', 'juice', 'energy drink', 'soda']}">
+									<g:if test="${productType in productsWithPresentations}">
 										<td><bar:presentation presentation="${p.presentation}"/></td>
 									</g:if>
 								</tr>

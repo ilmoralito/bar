@@ -13,14 +13,14 @@
 	</g:else>
 </div>
 
-<g:if test="${productType in ['beer', 'cigar']}">
+<g:if test="${productType in productsWithMeasure}">
 	<div class="form-group">
 		<label for="measure" class="sr-only"></label>
 		<g:select name="measure" from="${measures}" noSelection="[null:'Medida']" class="form-control"/>
 	</div>
 </g:if>
 
-<g:if test="${productType in ['beer', 'juice']}">
+<g:if test="${productType in productsWithPresentations}">
 	<div class="form-group">
 		<label for="presentation" class="sr-only"></label>
 		<g:select name="presentation" from="${presentations}" keys="['bottle', 'can', 'box']" noSelection="[null:'Presentacion']" class="form-control"/>

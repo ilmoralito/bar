@@ -46,12 +46,20 @@ class ProductController {
         def cigars = Cigar.list()
 
         brands = cigars.brand.unique()
-        measures = grailsApplication.config.ni.com.bar.measuers.cigars
+        measures = grailsApplication.config.ni.com.bar.measures.cigars
         products = cigars.groupBy { it.brand }
       break
   	}
 
-  	[products:products, productType:productType, brands:brands, measures:measures, presentations:presentations]
+  	[
+      products:products,
+      productType:productType,
+      brands:brands,
+      measures:measures,
+      presentations:presentations,
+      productsWithMeasure:['beer', 'cigar', 'water', 'soda'],
+      productsWithPresentations:['beer', 'soda', 'juice', 'energy drink']
+    ]
   }
 
   def save(String productType) {

@@ -28,6 +28,12 @@ class ProductController {
         products = beers.groupBy { it.brand }
   		break
 
+      case "ron":
+        def rones = Ron.list()
+
+        products = rones
+      break
+
       case "juice":
         def juices = Juice.list()
 
@@ -54,6 +60,10 @@ class ProductController {
     switch(productType) {
       case "beer":
         product = new Beer(params)
+      break
+
+      case "ron":
+        product = new Ron(params)
       break
 
       case "juice":

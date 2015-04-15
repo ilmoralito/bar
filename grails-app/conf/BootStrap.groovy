@@ -48,6 +48,13 @@ class BootStrap {
         def valle3 = new Juice(brand:"Valle", presentation:"box").save(failOnError:true)
 
         assert Juice.count() == 3
+
+        //rones
+        def extraLite = new Ron(brand:"Extra lite").save(failOnError:true)
+        def ronPlata = new Ron(brand:"Ron plata").save(failOnError:true)
+        def ultraLight = new Ron(brand:"ultra light").save(failOnError:true)
+
+        assert Ron.count() == 3
   		break
   	}
   }

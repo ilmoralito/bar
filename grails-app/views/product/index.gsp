@@ -48,7 +48,7 @@
 										<td>${p.measure}</td>
 									</g:if>
 									<g:if test="${productType in productsWithPresentations}">
-										<td><bar:presentation presentation="${p.presentation}"/></td>
+										<td>${p.presentation}</td>
 									</g:if>
 								</tr>
 							</g:each>

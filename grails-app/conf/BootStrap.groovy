@@ -30,10 +30,9 @@ class BootStrap {
         //beers
         def tona12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"Botella").save(failOnError:true)
         def tonaLitro = new Beer(brand:"Tona", measure:"1L", presentation:"Botella").save(failOnError:true)
-        def tonaLata12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"Lata").save(failOnError:true)
         def tonaLata700Ml = new Beer(brand:"Tona", measure:"700ml", presentation:"Lata").save(failOnError:true)
 
-        assert Beer.count() == 4
+        assert Beer.count() == 3
 
         //cigars
         def belmont10 = new Cigar(brand:"Belmont", measure:"10und").save(failOnError:true)

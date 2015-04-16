@@ -7,6 +7,10 @@ class Juice extends Product {
 	String presentation
 
   static constraints = {
-  	presentation blank:false, inList:h.config.ni.com.bar.presentationsAndMeasures.juice.keySet() as List, maxSize:50
+  	presentation blank: false, inList: h.config.ni.com.bar.presentationsAndMeasures.juice.keySet() as List, maxSize: 50, validator: { presentation, obj ->
+  		if (Juice.findByBrandAndPresentation(obj.brand, presentation)) {
+  			return "cigar.measure.repeated"
+  		}
+  	}
   }
 }

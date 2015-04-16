@@ -10,6 +10,7 @@ class ProductController {
   ]
 
   def grailsApplication
+  def productService
 
   def index() {
   	def products
@@ -23,8 +24,6 @@ class ProductController {
         def beers = Beer.list()
 
         brands = beers.brand.unique()
-        measures = grailsApplication.config.ni.com.bar.measures.beers
-        presentations = grailsApplication.config.ni.com.bar.presentations.beers
         products = beers.groupBy { it.brand }
   		break
 
@@ -38,8 +37,6 @@ class ProductController {
         def sodas = Soda.list()
 
         brands = sodas.brand.unique()
-        measures = grailsApplication.config.ni.com.bar.measures.soda
-        presentations = grailsApplication.config.ni.com.bar.presentations.beers
         products = sodas.groupBy { it.brand }
       break
 
@@ -47,7 +44,6 @@ class ProductController {
         def juices = Juice.list()
 
         brands = juices.brand.unique()
-        presentations = grailsApplication.config.ni.com.bar.presentations.juices
         products = juices.groupBy { it.brand }
       break
 
@@ -55,7 +51,6 @@ class ProductController {
         def cigars = Cigar.list()
 
         brands = cigars.brand.unique()
-        measures = grailsApplication.config.ni.com.bar.measures.cigars
         products = cigars.groupBy { it.brand }
       break
   	}
@@ -64,8 +59,8 @@ class ProductController {
       products:products,
       productType:productType,
       brands:brands,
-      measures:measures,
-      presentations:presentations,
+      measures:productService.getMeasures(productType),
+      presentations:productService.getPresentations(productType),
       productsWithMeasure:['beer', 'cigar', 'water', 'soda'],
       productsWithPresentations:['beer', 'soda', 'juice', 'energy drink']
     ]

@@ -116,15 +116,23 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
-ni.com.bar.measures = [
-  beers:["1L", "12Oz", "700ml"],
-  cigars:["10", "20"],
-  soda:["12Oz", "1/2L"]
-]
-
-ni.com.bar.presentations = [
-  beers:["Botella", "Lata"],
-  juices:["Botella", "Lata", "Caja"]
+ni.com.bar.presentationsAndMeasures = [
+  beer:[
+    Botella:["12Oz", "1L"],
+    Lata:["375ml", "700ml"]
+  ],
+  soda:[
+    Botella:["12Oz", "1/2L", "1L"],
+    Lata:["375ml"]
+  ],
+  juice:[
+    Botella:["12Oz"],
+    Lata:["375ml"],
+    Caja:["300ml"]
+  ],
+  cigar:[
+    Caja:["10und", "20und"]
+  ]
 ]
 
 // Added by the Spring Security Core plugin:

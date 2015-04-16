@@ -1,17 +1,13 @@
 package ni.com.bar
 
-class Beer extends Product {
+import grails.util.Holders as h
 
-	String measure
+class Beer extends Product {
 	String presentation
+  String measure
 
   static constraints = {
-  	measure blank:false, inList:["1L", "12Oz", "700ml"], maxSize:50, validator:{ measure, beer ->
-  		if (beer.presentation == "can" && measure == "1L") {
-  			return "product.measure.notValid"
-  		}
-  	}
-  	presentation blank:false, inList:["bottle", "can"], maxSize:50
+  	presentation blank:false, inList:h.config.ni.com.bar.presentationsAndMeasures.beer.keySet() as List, maxSize:50
+    measure blank:false, inList:h.config.ni.com.bar.presentationsAndMeasures.beer*.value.flatten() as List, maxSize:50
   }
-
 }

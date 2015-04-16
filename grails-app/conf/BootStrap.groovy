@@ -28,24 +28,24 @@ class BootStrap {
 
         //PRODUCTS
         //beers
-        def tona12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"bottle").save(failOnError:true)
-        def tonaLitro = new Beer(brand:"Tona", measure:"1L", presentation:"bottle").save(failOnError:true)
-        def tonaLata12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"can").save(failOnError:true)
-        def tonaLata700Ml = new Beer(brand:"Tona", measure:"700ml", presentation:"can").save(failOnError:true)
+        def tona12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"Botella").save(failOnError:true)
+        def tonaLitro = new Beer(brand:"Tona", measure:"1L", presentation:"Botella").save(failOnError:true)
+        def tonaLata12Oz = new Beer(brand:"Tona", measure:"12Oz", presentation:"Lata").save(failOnError:true)
+        def tonaLata700Ml = new Beer(brand:"Tona", measure:"700ml", presentation:"Lata").save(failOnError:true)
 
         assert Beer.count() == 4
 
         //cigars
-        def belmont10 = new Cigar(brand:"Belmont", measure:"10").save(failOnError:true)
-        def belmont20 = new Cigar(brand:"Belmont", measure:"20").save(failOnError:true)
-        def winsor = new Cigar(brand:"Winsor", measure:"10").save(failOnError:true)
+        def belmont10 = new Cigar(brand:"Belmont", measure:"10und").save(failOnError:true)
+        def belmont20 = new Cigar(brand:"Belmont", measure:"20und").save(failOnError:true)
+        def winsor = new Cigar(brand:"Winsor", measure:"10und").save(failOnError:true)
 
         assert Cigar.count() == 3
 
         //juices
-        def valle1 = new Juice(brand:"Valle", presentation:"bottle").save(failOnError:true)
-        def valle2 = new Juice(brand:"Valle", presentation:"can").save(failOnError:true)
-        def valle3 = new Juice(brand:"Valle", presentation:"box").save(failOnError:true)
+        def valle1 = new Juice(brand:"Valle", presentation:"Botella").save(failOnError:true)
+        def valle2 = new Juice(brand:"Valle", presentation:"Lata").save(failOnError:true)
+        def valle3 = new Juice(brand:"Valle", presentation:"Caja").save(failOnError:true)
 
         assert Juice.count() == 3
 

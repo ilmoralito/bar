@@ -1,10 +1,11 @@
 package ni.com.bar
 
+import grails.util.Holders as h
+
 class Cigar extends Product {
 	String measure
 
   static constraints = {
-  	measure blank:false, inList:["10", "20"], maxSize:50
+  	measure blank:false, inList:h.config.ni.com.bar.presentationsAndMeasures.cigar*.value.flatten() as List, maxSize:50
   }
-
 }

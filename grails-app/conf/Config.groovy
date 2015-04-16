@@ -118,11 +118,12 @@ log4j.main = {
 
 ni.com.bar.measures = [
   beers:["1L", "12Oz", "700ml"],
-  cigars:["10", "20"]
+  cigars:["10", "20"],
+  soda:["12Oz", "1/2L"]
 ]
 
 ni.com.bar.presentations = [
-  beers:["Botella", "Caja"],
+  beers:["Botella", "Lata"],
   juices:["Botella", "Lata", "Caja"]
 ]
 

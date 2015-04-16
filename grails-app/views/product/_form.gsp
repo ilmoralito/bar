@@ -23,6 +23,6 @@
 <g:if test="${productType in productsWithPresentations}">
 	<div class="form-group">
 		<label for="presentation" class="sr-only"></label>
-		<g:select name="presentation" from="${presentations}" keys="['bottle', 'can', 'box']" noSelection="[null:'Presentacion']" class="form-control"/>
+		<g:select name="presentation" from="${presentations}" noSelection="[null:'Presentacion']" class="form-control"/>
 	</div>
 </g:if>

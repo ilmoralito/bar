@@ -55,6 +55,11 @@ class BootStrap {
         def ultraLight = new Ron(brand:"ultra light").save(failOnError:true)
 
         assert Ron.count() == 3
+
+        //sodas
+        def coca12Oz = new Soda(brand:"coca cola", measure:"12Oz", presentation:"Botella").save(failOnError:true)
+
+        assert Soda.count() == 1
   		break
   	}
   }

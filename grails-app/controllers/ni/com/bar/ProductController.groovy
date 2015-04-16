@@ -34,6 +34,15 @@ class ProductController {
         products = rones
       break
 
+      case "soda":
+        def sodas = Soda.list()
+
+        brands = sodas.brand.unique()
+        measures = grailsApplication.config.ni.com.bar.measures.soda
+        presentations = grailsApplication.config.ni.com.bar.presentations.beers
+        products = sodas.groupBy { it.brand }
+      break
+
       case "juice":
         def juices = Juice.list()
 
@@ -72,6 +81,10 @@ class ProductController {
 
       case "ron":
         product = new Ron(params)
+      break
+
+      case "soda":
+        product = new Soda(params)
       break
 
       case "juice":

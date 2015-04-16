@@ -60,6 +60,13 @@ class BootStrap {
         def coca12Oz = new Soda(brand:"coca cola", measure:"12Oz", presentation:"Botella").save(failOnError:true)
 
         assert Soda.count() == 1
+
+        //water
+        def alpina12Oz = new Water(brand:"Aplina", measure:"12Oz").save(failOnError:true)
+        def alpina05l = new Water(brand:"Aplina", measure:"1/2L").save(failOnError:true)
+        def alpina1l = new Water(brand:"Aplina", measure:"1L").save(failOnError:true)
+
+        assert Water.count() == 3
   		break
   	}
   }

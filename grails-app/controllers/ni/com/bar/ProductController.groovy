@@ -33,6 +33,13 @@ class ProductController {
         products = rones
       break
 
+      case "water":
+        def waters = Water.list()
+
+        brands = waters.brand.unique()
+        products = waters.groupBy { it.brand }
+      break
+
       case "soda":
         def sodas = Soda.list()
 
@@ -76,6 +83,10 @@ class ProductController {
 
       case "ron":
         product = new Ron(params)
+      break
+
+      case "water":
+        product = new Water(params)
       break
 
       case "soda":

@@ -132,6 +132,9 @@ ni.com.bar.presentationsAndMeasures = [
   ],
   cigar:[
     Caja:["10und", "20und"]
+  ],
+  water:[
+    Botella:["12Oz", "1/2L", "1L"]
   ]
 ]
 

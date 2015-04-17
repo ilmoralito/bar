@@ -8,8 +8,8 @@
   <li role="presentation" class="${productType == 'water' ? 'active' : ''}">
   	<g:link action="index" params="[productType:'water']">Agua</g:link>
   </li>
-  <li role="presentation" class="${productType == 'energy drink' ? 'active' : ''}">
-  	<g:link action="index" params="[productType:'energy drink']">Bebidas energizantes</g:link>
+  <li role="presentation" class="${productType == 'energyDrink' ? 'active' : ''}">
+  	<g:link action="index" params="[productType:'energyDrink']">Bebidas energizantes</g:link>
   </li>
   <li role="presentation" class="${productType == 'soda' ? 'active' : ''}">
   	<g:link action="index" params="[productType:'soda']">Gaseosas</g:link>

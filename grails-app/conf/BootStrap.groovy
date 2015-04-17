@@ -66,6 +66,13 @@ class BootStrap {
         def alpina1l = new Water(brand:"Aplina", measure:"1L").save(failOnError:true)
 
         assert Water.count() == 3
+
+        //energyDrinks
+        def redBull1 = new EnergyDrink(brand:"RedBull", presentation:"Botella").save failOnError:true
+        def redBull2 = new EnergyDrink(brand:"redBull", presentation:"Lata").save failOnError:true
+        def monster = new EnergyDrink(brand:"monster", presentation:"Botella").save failOnError:true
+
+        assert EnergyDrink.count() == 3
   		break
   	}
   }

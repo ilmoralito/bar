@@ -40,6 +40,13 @@ class ProductController {
         products = waters.groupBy { it.brand }
       break
 
+      case "energyDrink":
+        def energyDrinks = EnergyDrink.list()
+
+        brands = energyDrinks.brand.unique()
+        products = energyDrinks.groupBy { it.brand }
+      break
+
       case "soda":
         def sodas = Soda.list()
 
@@ -69,7 +76,7 @@ class ProductController {
       measures:productService.getMeasures(productType),
       presentations:productService.getPresentations(productType),
       productsWithMeasure:['beer', 'cigar', 'water', 'soda'],
-      productsWithPresentations:['beer', 'soda', 'juice', 'energy drink']
+      productsWithPresentations:['beer', 'soda', 'juice', 'energyDrink']
     ]
   }
 
@@ -87,6 +94,10 @@ class ProductController {
 
       case "water":
         product = new Water(params)
+      break
+
+      case "energyDrink":
+        product = new EnergyDrink(params)
       break
 
       case "soda":

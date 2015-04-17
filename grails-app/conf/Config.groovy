@@ -117,25 +117,26 @@ log4j.main = {
 }
 
 ni.com.bar.presentationsAndMeasures = [
-  beer:[
-    Botella:["12Oz", "1L"],
-    Lata:["375ml", "700ml"]
+  beer: [
+    Botella: ["12Oz", "1L"],
+    Lata: ["375ml", "700ml"]
   ],
-  soda:[
-    Botella:["12Oz", "1/2L", "1L"],
-    Lata:["375ml"]
+  soda: [
+    Botella: ["12Oz", "1/2L", "1L"],
+    Lata: ["375ml"]
   ],
-  juice:[
-    Botella:["12Oz"],
-    Lata:["375ml"],
-    Caja:["300ml"]
+  juice: [
+    Botella: ["12Oz"],
+    Lata: ["375ml"],
+    Caja: ["300ml"]
   ],
-  cigar:[
-    Caja:["10und", "20und"]
+  cigar: [
+    Caja: ["10und", "20und"]
   ],
-  water:[
-    Botella:["12Oz", "1/2L", "1L"]
-  ]
+  water: [
+    Botella: ["12Oz", "1/2L", "1L"]
+  ],
+  energyDrink: ["Botella", "Lata"]
 ]
 
 // Added by the Spring Security Core plugin:

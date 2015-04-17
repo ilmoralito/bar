@@ -9,7 +9,7 @@
   	<g:link action="index" params="[productType:'water']">Agua</g:link>
   </li>
   <li role="presentation" class="${productType == 'energy drink' ? 'active' : ''}">
-  	<g:link action="index" params="[productType:'energy drink']">Bebidas energizante</g:link>
+  	<g:link action="index" params="[productType:'energy drink']">Bebidas energizantes</g:link>
   </li>
   <li role="presentation" class="${productType == 'soda' ? 'active' : ''}">
   	<g:link action="index" params="[productType:'soda']">Gaseosas</g:link>

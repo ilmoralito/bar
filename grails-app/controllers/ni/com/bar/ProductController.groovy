@@ -13,66 +13,15 @@ class ProductController {
   def productService
 
   def index() {
-  	def products
-  	def productType = params?.productType ?: "beer"
-  	def brands
-    def measures = []
-    def presentations = []
+    def productType = params?.productType ?: "beer"
+    def p = [beer: Beer, ron: Ron, water: Water, energyDrink: EnergyDrink, soda: Soda, juice: Juice, cigar: Cigar]
 
-  	switch(productType) {
-  		case "beer":
-        def beers = Beer.list()
-
-        brands = beers.brand.unique()
-        products = beers.groupBy { it.brand }
-  		break
-
-      case "ron":
-        def rones = Ron.list()
-
-        products = rones
-      break
-
-      case "water":
-        def waters = Water.list()
-
-        brands = waters.brand.unique()
-        products = waters.groupBy { it.brand }
-      break
-
-      case "energyDrink":
-        def energyDrinks = EnergyDrink.list()
-
-        brands = energyDrinks.brand.unique()
-        products = energyDrinks.groupBy { it.brand }
-      break
-
-      case "soda":
-        def sodas = Soda.list()
-
-        brands = sodas.brand.unique()
-        products = sodas.groupBy { it.brand }
-      break
-
-      case "juice":
-        def juices = Juice.list()
-
-        brands = juices.brand.unique()
-        products = juices.groupBy { it.brand }
-      break
-
-      case "cigar":
-        def cigars = Cigar.list()
-
-        brands = cigars.brand.unique()
-        products = cigars.groupBy { it.brand }
-      break
-  	}
+  	def products = p[productType].list()
 
   	[
-      products:products,
+      products: productType != "ron" ? products.groupBy { it.brand } : products,
       productType:productType,
-      brands:brands,
+      brands:products?.brand?.unique(),
       measures:productService.getMeasures(productType),
       presentations:productService.getPresentations(productType),
       productsWithMeasure:['beer', 'cigar', 'water', 'soda'],

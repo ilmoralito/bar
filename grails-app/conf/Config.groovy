@@ -125,11 +125,7 @@ ni.com.bar.presentationsAndMeasures = [
     Botella: ["12Oz", "1/2L", "1L"],
     Lata: ["375ml"]
   ],
-  juice: [
-    Botella: ["12Oz"],
-    Lata: ["375ml"],
-    Caja: ["300ml"]
-  ],
+  juice: ["Botella", "Lata", "Caja"],
   cigar: [
     Caja: ["10und", "20und"]
   ],

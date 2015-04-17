@@ -6,7 +6,9 @@ import grails.plugin.springsecurity.annotation.Secured
 class ProductController {
 
   static methodAlloweds = [
-    index:"GET"
+    index:"GET",
+    save:"POST",
+    delete:"GET"
   ]
 
   def grailsApplication
@@ -73,5 +75,17 @@ class ProductController {
 
 
   	redirect action:"index", params:[productType:productType]
+  }
+
+  def delete(Long id, String productType) {
+    def product = Product.get id
+
+    if (!product) {
+      response.sendError 404
+    }
+
+    product.delete flush:true
+
+    redirect action:"index", params:[productType:productType]
   }
 }

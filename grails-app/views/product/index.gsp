@@ -13,12 +13,18 @@
 					<thead>
 						<tr>
 							<th>Marcas</th>
+							<th width="1"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<g:each in="${products}" var="ron">
 							<tr>
 								<td>${ron.brand}</td>
+								<td>
+									<g:link action="delete" params="[id:ron.id, productType:'ron']">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+									</g:link>
+								</td>
 							</tr>
 						</g:each>
 					</tbody>
@@ -33,23 +39,34 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<g:if test="${productType in productsWithMeasure}">
-									<th width="1">Medida</th>
-								</g:if>
 								<g:if test="${productType in productsWithPresentations}">
-									<th>Presentacion</th>
+									<g:if test="${productType in ['energyDrink', 'juice']}">
+										<th>Presentacion</th>
+									</g:if>
+									<g:else>
+										<th width="1">Presentacion</th>
+									</g:else>
 								</g:if>
+								<g:if test="${productType in productsWithMeasure}">
+									<th>Medida</th>
+								</g:if>
+								<th width="1"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<g:each in="${brand.value}" var="${p}">
 								<tr>
-									<g:if test="${productType in productsWithMeasure}">
-										<td>${p.measure}</td>
-									</g:if>
 									<g:if test="${productType in productsWithPresentations}">
 										<td>${p.presentation}</td>
 									</g:if>
+									<g:if test="${productType in productsWithMeasure}">
+										<td>${p.measure}</td>
+									</g:if>
+									<td>
+										<g:link action="delete" params="[id:p.id, productType:productType]">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</g:link>
+									</td>
 								</tr>
 							</g:each>
 						</tbody>

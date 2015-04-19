@@ -6,45 +6,47 @@ import grails.plugin.springsecurity.annotation.Secured
 class ProviderController {
 
 	static allowedMethods = [
-		index:"GET",
-		create:["GET", "POST"]
+    index:"GET",
+		save:"POST",
+    show:"GET",
+    update:"POST"
 	]
 
-   def index() {
-   	def providers = Provider.list()
+  def index() {
+    def providers = Provider.list()
 
-   	[providers:providers]
+    [providers:providers]
    }
 
-   def create() {
-   	if (request.method == "POST") {
-   		def provider = new Provider(params)
+  def save() {
+   	def provider = new Provider(params)
 
-   		if (!provider.save()) {
-   			return [provider:provider]
-   		}
-
-   		flash.message = "Proveedor creado"
+   	if (!provider.save()) {
+   		chain action:"index", model:[provider:provider]
+      return
    	}
-   }
 
-   def show(Provider provider) {
-   	if (!provider) {
-   		response.sendError 404
+    flash.message = "Proveedor creado"
+    redirect action:"index"
+  }
+
+  def show(Provider provider) {
+  	if (!provider) {
+    	response.sendError 404
    	}
 
    	[provider:provider]
-   }
+  }
 
-   def update(Provider provider) {
-   	if (!provider) {
-   		response.sendError 404
-   	}
+  def update(Provider provider) {
+  	if (!provider) {
+      response.sendError 404
+    }
 
-   	provider.properties["name", "address"] = params
+    provider.properties["name", "address"] = params
 
-   	flash.message = (!provider.save(flush:true)) ? "A ocurrido un error" : "Actualizacion completada"
+    flash.message = (!provider.save(flush:true)) ? "A ocurrido un error" : "Actualizacion completada"
 
-   	redirect action:"show", params:[id:provider.id]
-   }
+    redirect action:"show", params:[id:provider.id]
+  }
 }
